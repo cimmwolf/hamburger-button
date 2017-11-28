@@ -1,0 +1,14 @@
+<html><head><link rel="import" href="../polymer/polymer.html">
+
+</head><body><dom-module id="hamburger-button">
+    <template>
+        <style>:host{display:flex;flex-direction:column;justify-content:space-between;width:30px;height:24px;transition:transform 300ms linear;}:host.opened{transform:rotateZ(90deg);}.icon-bar{background:#000;padding:2px 0;width:100%;border-radius:1px;transform-origin:center;position:relative;top:0;bottom:0;transition:transform 300ms,opacity 300ms ease-in,top 300ms,bottom 300ms;}:host.opened .icon-bar:nth-child(1){top:50%;bottom:auto;transform:translateY(-50%) rotateZ(45deg)}:host.opened .icon-bar:nth-child(2){opacity:0;}:host.opened .icon-bar:nth-child(3){bottom:50%;top:auto;transform:translateY(50%) rotateZ(-45deg)}</style>
+
+
+        <div class="icon-bar"></div>
+        <div class="icon-bar"></div>
+        <div class="icon-bar"></div>
+
+    </template>
+    <script>Polymer({is:"hamburger-button",properties:{opened:{type:Boolean,observer:"toggleState"},navHeight:Number},listeners:{tap:"onTap"},onTap:function(){return this.opened=!this.opened},toggleState:function(e){var t;this.toggleClass("opened",e),t=this.parentElement.querySelector('nav[role="navigation"]'),this.navHeight||(t.style.position="absolute",t.style.maxHeight="none",t.style.visibility="hidden",this.navHeight=t.offsetHeight,t.removeAttribute("style"),t.offsetHeight),t.style.maxHeight=e?this.navHeight+"px":0}});</script>
+</dom-module></body></html>
