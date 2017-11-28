@@ -1,0 +1,20 @@
+{
+  "name": "hamburger-button",
+  "authors": [
+    "Denis Beliaev <cimmwolf@gmail.com>"
+  ],
+  "description": "Hamburger button for navbar",
+  "main": "hambureger-button.html",
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "polymer": "Polymer/polymer#^1.1.0"
+  }
+}
