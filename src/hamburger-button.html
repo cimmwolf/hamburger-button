@@ -52,8 +52,7 @@
                 opened: {
                     type: Boolean,
                     observer: 'toggleState'
-                },
-                navHeight: Number
+                }
             },
             listeners: {
                 tap: 'onTap'
@@ -62,23 +61,18 @@
                 return this.opened = !this.opened;
             },
             toggleState: function (value) {
-                var topNavbarMenu, temp;
+                var topNavbarMenu, temp, navHeight;
                 this.toggleClass('opened', value);
                 topNavbarMenu = this.parentElement.querySelector('nav[role="navigation"]');
+                topNavbarMenu.style.position = 'absolute';
+                topNavbarMenu.style.maxHeight = 'none';
+                topNavbarMenu.style.visibility = 'hidden';
+                navHeight = topNavbarMenu.offsetHeight;
 
-                if (!this.navHeight) {
-                    topNavbarMenu.style.position = 'absolute';
-                    topNavbarMenu.style.maxHeight = 'none';
-                    topNavbarMenu.style.visibility = 'hidden';
-
-                    this.navHeight = topNavbarMenu.offsetHeight;
-
-                    topNavbarMenu.removeAttribute('style');
-                    temp = topNavbarMenu.offsetHeight;
-                }
-
+                topNavbarMenu.removeAttribute('style');
+                temp = topNavbarMenu.offsetHeight;
                 if (value)
-                    topNavbarMenu.style.maxHeight = this.navHeight + 'px';
+                    topNavbarMenu.style.maxHeight = navHeight + 'px';
                 else
                     topNavbarMenu.style.maxHeight = 0;
             }
