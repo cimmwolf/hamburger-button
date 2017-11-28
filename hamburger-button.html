@@ -10,5 +10,5 @@
         <div class="icon-bar"></div>
 
     </template>
-    <script>Polymer({is:"hamburger-button",properties:{opened:{type:Boolean,observer:"toggleState"},navHeight:Number},listeners:{tap:"onTap"},onTap:function(){return this.opened=!this.opened},toggleState:function(e){var t;this.toggleClass("opened",e),t=this.parentElement.querySelector('nav[role="navigation"]'),this.navHeight||(t.style.position="absolute",t.style.maxHeight="none",t.style.visibility="hidden",this.navHeight=t.offsetHeight,t.removeAttribute("style"),t.offsetHeight),t.style.maxHeight=e?this.navHeight+"px":0}});</script>
+    <script>Polymer({is:"hamburger-button",properties:{opened:{type:Boolean,observer:"toggleState"}},listeners:{tap:"onTap"},onTap:function(){return this.opened=!this.opened},toggleState:function(e){var t,o;this.toggleClass("opened",e),t=this.parentElement.querySelector('nav[role="navigation"]'),t.style.position="absolute",t.style.maxHeight="none",t.style.visibility="hidden",o=t.offsetHeight,t.removeAttribute("style"),t.offsetHeight,t.style.maxHeight=e?o+"px":0}});</script>
 </dom-module></body></html>
