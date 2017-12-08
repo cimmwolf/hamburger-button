@@ -64,7 +64,7 @@
                 var topNavbarMenu, temp, navHeight;
                 this.toggleClass('opened', value);
                 topNavbarMenu = this.parentElement.querySelector('nav[role="navigation"]');
-                if (value) {
+                if (value && topNavbarMenu.style.maxHeight === 0) {
                     topNavbarMenu.style.position = 'absolute';
                     topNavbarMenu.style.maxHeight = 'none';
                     topNavbarMenu.style.visibility = 'hidden';
@@ -76,7 +76,7 @@
                     topNavbarMenu.style.maxHeight = navHeight + 'px';
                 }
                 else
-                    topNavbarMenu.style.maxHeight = 0;
+                    topNavbarMenu.style.maxHeight = '';
             }
         });
     </script>
