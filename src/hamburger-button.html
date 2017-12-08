@@ -64,15 +64,17 @@
                 var topNavbarMenu, temp, navHeight;
                 this.toggleClass('opened', value);
                 topNavbarMenu = this.parentElement.querySelector('nav[role="navigation"]');
-                topNavbarMenu.style.position = 'absolute';
-                topNavbarMenu.style.maxHeight = 'none';
-                topNavbarMenu.style.visibility = 'hidden';
-                navHeight = topNavbarMenu.offsetHeight;
+                if (value) {
+                    topNavbarMenu.style.position = 'absolute';
+                    topNavbarMenu.style.maxHeight = 'none';
+                    topNavbarMenu.style.visibility = 'hidden';
+                    navHeight = topNavbarMenu.offsetHeight;
 
-                topNavbarMenu.removeAttribute('style');
-                temp = topNavbarMenu.offsetHeight;
-                if (value)
+                    topNavbarMenu.removeAttribute('style');
+                    temp = topNavbarMenu.offsetHeight;
+
                     topNavbarMenu.style.maxHeight = navHeight + 'px';
+                }
                 else
                     topNavbarMenu.style.maxHeight = 0;
             }
