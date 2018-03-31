@@ -11,7 +11,7 @@
                 height: 24px;
                 transition: transform 300ms linear; }
 
-            :host.opened {
+            :host(.opened) {
                 transform: rotateZ(90deg); }
 
             .icon-bar {
@@ -25,15 +25,15 @@
                 bottom: 0;
                 transition: transform 300ms, opacity 300ms ease-in, top 300ms, bottom 300ms; }
 
-            :host.opened .icon-bar:nth-child(1) {
+            :host(.opened) .icon-bar:nth-child(1) {
                 top: 50%;
                 bottom: auto;
                 transform: translateY(-50%) rotateZ(45deg) }
 
-            :host.opened .icon-bar:nth-child(2) {
+            :host(.opened) .icon-bar:nth-child(2) {
                 opacity: 0; }
 
-            :host.opened .icon-bar:nth-child(3) {
+            :host(.opened) .icon-bar:nth-child(3) {
                 bottom: 50%;
                 top: auto;
                 transform: translateY(50%) rotateZ(-45deg) }
