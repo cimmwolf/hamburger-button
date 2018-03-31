@@ -2,7 +2,7 @@
 
 </head><body><dom-module id="hamburger-button">
     <template>
-        <style>:host{display:flex;flex-direction:column;justify-content:space-between;width:30px;height:24px;transition:transform 300ms linear;}:host.opened{transform:rotateZ(90deg);}.icon-bar{background:#000;padding:2px 0;width:100%;border-radius:1px;transform-origin:center;position:relative;top:0;bottom:0;transition:transform 300ms,opacity 300ms ease-in,top 300ms,bottom 300ms;}:host.opened .icon-bar:nth-child(1){top:50%;bottom:auto;transform:translateY(-50%) rotateZ(45deg)}:host.opened .icon-bar:nth-child(2){opacity:0;}:host.opened .icon-bar:nth-child(3){bottom:50%;top:auto;transform:translateY(50%) rotateZ(-45deg)}</style>
+        <style>:host{display:flex;flex-direction:column;justify-content:space-between;width:30px;height:24px;transition:transform 300ms linear;}:host(.opened){transform:rotateZ(90deg);}.icon-bar{background:#000;padding:2px 0;width:100%;border-radius:1px;transform-origin:center;position:relative;top:0;bottom:0;transition:transform 300ms,opacity 300ms ease-in,top 300ms,bottom 300ms;}:host(.opened) .icon-bar:nth-child(1){top:50%;bottom:auto;transform:translateY(-50%) rotateZ(45deg)}:host(.opened) .icon-bar:nth-child(2){opacity:0;}:host(.opened) .icon-bar:nth-child(3){bottom:50%;top:auto;transform:translateY(50%) rotateZ(-45deg)}</style>
 
 
         <div class="icon-bar"></div>
