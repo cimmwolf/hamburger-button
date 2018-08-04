@@ -8,5 +8,6 @@
         <div class="icon-bar"></div>
         <div class="icon-bar"></div>
     </template>
-    <script>Polymer({is:"hamburger-button",properties:{opened:{type:Boolean,observer:"toggleState"}},listeners:{tap:"onTap"},onTap:function(){return this.opened=!this.opened},toggleState:function(e){var t,o;this.toggleClass("opened",e),t=this.parentElement.querySelector('nav[role="navigation"]'),e&&0===t.offsetHeight?(t.style.position="absolute",t.style.maxHeight="none",t.style.visibility="hidden",o=t.offsetHeight,t.removeAttribute("style"),t.offsetHeight,t.style.maxHeight=o+"px"):t.style.maxHeight=""}});</script>
-</dom-module></body></html>
+    <script>Polymer({is:"hamburger-button",properties:{opened:{type:Boolean,observer:"toggleState"}},listeners:{tap:"onTap"},onTap:function(){return this.opened=!this.opened},toggleState:function(e){this.toggleClass("opened",e),e?this.fire("hamburger-open"):this.fire("hamburger-close")}});</script>
+</dom-module>
+</body></html>
