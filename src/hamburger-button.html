@@ -39,11 +39,9 @@
                 transform: translateY(50%) rotateZ(-45deg) }
         </style>
 
-
         <div class="icon-bar"></div>
         <div class="icon-bar"></div>
         <div class="icon-bar"></div>
-
     </template>
     <script>
         Polymer({
@@ -61,22 +59,12 @@
                 return this.opened = !this.opened;
             },
             toggleState: function (value) {
-                var topNavbarMenu, temp, navHeight;
                 this.toggleClass('opened', value);
-                topNavbarMenu = this.parentElement.querySelector('nav[role="navigation"]');
-                if (value && topNavbarMenu.offsetHeight === 0) {
-                    topNavbarMenu.style.position = 'absolute';
-                    topNavbarMenu.style.maxHeight = 'none';
-                    topNavbarMenu.style.visibility = 'hidden';
-                    navHeight = topNavbarMenu.offsetHeight;
-
-                    topNavbarMenu.removeAttribute('style');
-                    temp = topNavbarMenu.offsetHeight;
-
-                    topNavbarMenu.style.maxHeight = navHeight + 'px';
+                if (value) {
+                    this.fire('hamburger-open');
+                } else {
+                    this.fire('hamburger-close');
                 }
-                else
-                    topNavbarMenu.style.maxHeight = '';
             }
         });
     </script>
