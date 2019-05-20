@@ -15,7 +15,7 @@
                 transform: rotateZ(90deg); }
 
             .icon-bar {
-                background: #000;
+                background: var(--humburger-button-bar-color, #000);
                 padding: 2px 0;
                 width: 100%;
                 border-radius: 1px;
@@ -77,11 +77,12 @@
             }
 
             toggleState(value) {
-                this.toggleClass('opened', value);
                 if (value) {
-                    this.fire('hamburger-open');
+                    this.dispatchEvent(new CustomEvent('hamburger-open', {bubbles: true, composed: true}));
+                    this.classList.add('opened');
                 } else {
-                    this.fire('hamburger-close');
+                    this.dispatchEvent(new CustomEvent('hamburger-close', {bubbles: true, composed: true}));
+                    this.classList.remove('opened');
                 }
             }
         }
