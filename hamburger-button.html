@@ -23,7 +23,9 @@
                 position: relative;
                 top: 0;
                 bottom: 0;
-                transition: transform 300ms, opacity 300ms ease-in, top 300ms, bottom 300ms; }
+                transition: transform 300ms, opacity 300ms ease-in, top 300ms, bottom 300ms;
+                @apply --hamburger-button-icon-bar;
+            }
 
             :host(.opened) .icon-bar:nth-of-type(1) {
                 top: 50%;
