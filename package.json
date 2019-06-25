@@ -1,17 +1,22 @@
 {
-  "name": "callback-form",
-  "version": "1.2.0",
-  "description": "Callback form for sites",
+  "name": "@vistro/hamburger-button",
+  "version": "3.0.0",
+  "description": "Hamburger for web sites",
   "repository": {
     "type": "git",
-    "url": "https://github.com/cimmwolf/Callback-form.git"
+    "url": "https://github.com/cimmwolf/hamburger-button.git"
   },
-  "main": "gulpfile.js",
-  "dependencies": {},
+  "main": "hamburger-button.js",
+  "dependencies": {
+    "@polymer/polymer": "^3.0.0"
+  },
   "devDependencies": {
-    "autoprefixer": "^6.3.7",
-    "gulp": "^3.9.1",
-    "polyclean": "^1.3.1"
+    "@polymer/iron-demo-helpers": "^3.0.0-pre.19",
+    "@polymer/test-fixture": "^4.0.2",
+    "@webcomponents/webcomponentsjs": "^2.0.0",
+    "chai": "^4.2.0",
+    "mocha": "^5.2.0",
+    "wct-mocha": "^1.0.0"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
