@@ -36,23 +36,23 @@ class HamburgerButton extends PolymerElement {
           @apply --hamburger-button-icon-bar;
       }
 
-      :host(.opened) .icon-bar:nth-of-type(1) {
+      :host(.opened) .first {
           top: 50%;
           bottom: auto;
           transform: translateY(-50%) rotateZ(45deg) }
 
-      :host(.opened) .icon-bar:nth-of-type(2) {
+      :host(.opened) .second {
           opacity: 0; }
 
-      :host(.opened) .icon-bar:nth-of-type(3) {
+      :host(.opened) .third {
           bottom: 50%;
           top: auto;
           transform: translateY(50%) rotateZ(-45deg) }
     </style>
   
-    <div class="icon-bar"></div>
-    <div class="icon-bar"></div>
-    <div class="icon-bar"></div>
+    <div class="icon-bar first"></div>
+    <div class="icon-bar second"></div>
+    <div class="icon-bar third"></div>
     `;
   }
 
@@ -70,8 +70,8 @@ class HamburgerButton extends PolymerElement {
   }
 
   ready() {
-    this.addEventListener('click', this._onTap);
     super.ready();
+    this.addEventListener('click', this._onTap);
   }
 
   _onTap() {
