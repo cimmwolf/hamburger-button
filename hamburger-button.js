@@ -1,81 +1,73 @@
-import {html, PolymerElement} from '@polymer/polymer/polymer-element.js';
+class HamburgerButton extends HTMLElement {
 
-/**
- * `hamburger-button`
- * Hamburger button with animation
- *
- * @customElement
- * @polymer
- * @demo demo/index.html
- */
-class HamburgerButton extends PolymerElement {
-	static get template() {
-		return html`
-    <style>
-      :host {
-          display: flex;
-          flex-direction: column;
-          justify-content: space-between;
-          width: 30px;
-          height: 24px;
-          transition: transform 300ms linear; 
-      }
+  constructor() {
+    super();
+    this.attachShadow({ mode: 'open' });
+  }
 
-      :host(.opened) { transform: rotateZ(90deg) }
+  connectedCallback() {
+    const { shadowRoot } = this;
 
-      .icon-bar {
-          background: var(--hamburger-button-bar-color, #000);
-          padding: var(--hamburger-button-bar-padding, 2px 0);
-          width: 100%;
-          border-radius: 1px;
-          transform-origin: center;
-          position: relative;
-          top: 0;
-          bottom: 0;
-          transition: var(--hamburger-button-bar-transition, transform 300ms, opacity 300ms ease-in, top 300ms, bottom 300ms);
-      }
+    shadowRoot.innerHTML = `
+      <style>
+        :host {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 30px;
+            height: 24px;
+            transition: transform 300ms linear;
+        }
 
-      :host(.opened) .first {
-          top: 50%;
-          bottom: auto;
-          transform: translateY(-50%) rotateZ(45deg); 
-      }
+        :host(.opened) { transform: rotateZ(90deg) }
 
-      :host(.opened) .second { opacity: 0; }
+        .icon-bar {
+            background: var(--hamburger-button-bar-color, #000);
+            padding: var(--hamburger-button-bar-padding, 2px 0);
+            width: 100%;
+            border-radius: 1px;
+            transform-origin: center;
+            position: relative;
+            top: 0;
+            bottom: 0;
+            transition: var(--hamburger-button-bar-transition, transform 300ms, opacity 300ms ease-in, top 300ms, bottom 300ms);
+        }
 
-      :host(.opened) .third {
-          bottom: 50%;
-          top: auto;
-          transform: translateY(50%) rotateZ(-45deg); 
-      }
-    </style>
-  
-    <div class="icon-bar first"></div>
-    <div class="icon-bar second"></div>
-    <div class="icon-bar third"></div>
+        :host(.opened) .first {
+            top: 50%;
+            bottom: auto;
+            transform: translateY(-50%) rotateZ(45deg);
+        }
+
+        :host(.opened) .second { opacity: 0; }
+
+        :host(.opened) .third {
+            bottom: 50%;
+            top: auto;
+            transform: translateY(50%) rotateZ(-45deg);
+        }
+      </style>
+
+      <div class="icon-bar first"></div>
+      <div class="icon-bar second"></div>
+      <div class="icon-bar third"></div>
     `;
-	}
 
-	static get is() {
+    this.addEventListener('click', this._onTap);
+  }
+
+  static get is() {
 		return 'hamburger-button';
 	}
 
 	static get properties() {
-		return {
-			opened: {
-				type: Boolean,
-				observer: 'toggleState'
-			}
-		};
-	}
-
-	ready() {
-		super.ready();
-		this.addEventListener('click', this._onTap);
+		return { opened: Boolean };
 	}
 
 	_onTap() {
-		return this.opened = !this.opened;
+    this.opened = !this.opened;
+    this.toggleState(this.opened);
+		return this.opened;
 	}
 
 	toggleState(value) {
