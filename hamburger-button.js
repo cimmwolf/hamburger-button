@@ -56,13 +56,17 @@ class HamburgerButton extends HTMLElement {
     this.addEventListener('click', this._onTap);
   }
 
-  static get is() {
-		return 'hamburger-button';
-	}
+  get opened () {
+    return this.hasAttribute('opened');
+  }
 
-	static get properties() {
-		return { opened: Boolean };
-	}
+  set opened(val) {
+    if (val) {
+      this.setAttribute('opened', '');
+    } else {
+      this.removeAttribute('opened');
+    }
+  }
 
 	_onTap() {
     this.opened = !this.opened;
@@ -81,4 +85,4 @@ class HamburgerButton extends HTMLElement {
 	}
 }
 
-customElements.define(HamburgerButton.is, HamburgerButton);
+customElements.define('hamburger-button', HamburgerButton);
