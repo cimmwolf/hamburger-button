@@ -60,18 +60,18 @@ class HamburgerButton extends HTMLElement {
     return this.hasAttribute('opened');
   }
 
-  set opened(val) {
-    if (val) {
+  set opened(value) {
+    if (value) {
       this.setAttribute('opened', '');
     } else {
       this.removeAttribute('opened');
     }
+    this.toggleState(this.opened);
   }
 
 	_onTap() {
     this.opened = !this.opened;
-    this.toggleState(this.opened);
-		return this.opened;
+    return this.opened;
 	}
 
 	toggleState(value) {
